@@ -5,7 +5,7 @@ node('Slavenode2') {
         }
 
         stage('Build') {
-            def mvnHome = tool name: 'Maven3', type: 'maven'
+            def mvnHome = tool name: 'maven', type: 'maven'
             dir('Javarepo1') {
                 echo 'Building the project...'
                 bat "\"${mvnHome}\\bin\\mvn\" clean package"
