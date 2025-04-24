@@ -12,7 +12,7 @@ node('Slavenode2') {  // Make sure the node label is correct
         }
 
         stage('Archive Artifacts') {
-            archiveArtifacts artifacts: '**/target/*.war', onlyIfSuccessful: true
+            archiveArtifacts artifacts: '**/target/*.jar', onlyIfSuccessful: true
         }
 
         echo 'Build succeeded!'
