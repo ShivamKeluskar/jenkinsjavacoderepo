@@ -1,13 +1,14 @@
-node('Slavenode2') {  // Make sure the node label is correct
+node('Slavenode2') {
     try {
         stage('Checkout') {
             git branch: 'main', url: 'https://github.com/ShivamKeluskar/jenkinsjavacoderepo.git'
         }
 
         stage('Build') {
-            dir('Javarepo1') {  // Make sure this matches your project folder structure
+            def mvnHome = tool name: 'Maven3', type: 'maven'
+            dir('Javarepo1') {
                 echo 'Building the project...'
-                bat 'mvn clean package'
+                bat "\"${mvnHome}\\bin\\mvn\" clean package"
             }
         }
 
